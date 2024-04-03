@@ -4,6 +4,12 @@
 
 @layer base {
   :root {
+    --color-primary: 29 113 185;
+    --color-secondary: 236 170 0;
+    --color-background: #EDEEF2;
+    --color-container: #FFFFFF;
+
+
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 

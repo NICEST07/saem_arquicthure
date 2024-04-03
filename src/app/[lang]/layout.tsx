@@ -1,3 +1,4 @@
+import { NextAuthProvider } from '@src/core/providers/session-next-auth'
 import { NextIntlClientProvider, useMessages } from 'next-intl'
 import type { Metadata } from 'next'
 import { roboto } from '@src/assets/fonts'
@@ -25,9 +26,9 @@ export default function LangLayout ({ children, params, ...props }: { children: 
     <html lang={params.lang}>
       <body className={`${roboto.className} bg-palette-background h-screen`}>
         <NextIntlClientProvider locale={params.lang} messages={messages}>
-          {/* <NextAuthProvider> */}
-          {children}
-          {/* </NextAuthProvider> */}
+          <NextAuthProvider>
+            {children}
+          </NextAuthProvider>
         </NextIntlClientProvider>
       </body>
     </html>
