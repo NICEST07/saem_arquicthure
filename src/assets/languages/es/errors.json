@@ -1,0 +1,10 @@
+{
+    "ERR_NETWORK": "Parece que hay un problema de conexión. Por favor, inténtalo de nuevo más tarde.",
+    "ERR_BAD_REQUEST": "Ha ocurrido un error. La solicitud no pudo ser procesada correctamente",
+    "ERR_TIMEOUT": "Ocurrió un error. El servidor no pudo responder a este recurso.",
+    "ERR_400": "Algo salió mal en la petición. Inténtelo de nuevo.",
+    "ERR_401": "Usted no tiene acceso a este recurso.",
+    "ERR_403": "No se puede acceder al recurso.",
+    "ECONNABORTED": "Tiempo agotado, inténtelo más tarde.",
+    "DEFAULT": "Lo sentimos, ocurrió un error inesperado."
+}

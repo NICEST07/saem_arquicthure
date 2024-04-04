@@ -20,13 +20,13 @@ export default {
       }
     },
     extend: {
-      palette: {
-        primary: 'rgb(var(--color-primary) / <alpha-value>)',
-        secondary: 'rgb(var(--color-secondary) / <alpha-value>)',
-        background: 'var(--color-background)',
-        container: 'var(--color-container)'
-      },
       colors: {
+        palette: {
+          primary: 'rgb(var(--color-primary) / <alpha-value>)',
+          secondary: 'rgb(var(--color-secondary) / <alpha-value>)',
+          background: 'var(--color-background)',
+          container: 'var(--color-container)'
+        },
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
