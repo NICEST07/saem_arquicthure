@@ -20,7 +20,7 @@ export const adaptLoginService = (data: LoginServiceResponse) => ({
   success: data.success,
   token: data.token,
   userMail: data.securityMail,
-  methoAuths: data.typesAuth
+  methodAuths: data.typesAuth
 })
 
 export async function loginUser (dataForm: LoginValues, tokenCaptcha: string) {
@@ -36,12 +36,12 @@ export async function loginUser (dataForm: LoginValues, tokenCaptcha: string) {
   } catch (error) {
     console.error('Se produjo un error:', error)
     throw error
-    return {
-      success: true,
-      securityMail: 'este******@gm**.com',
-      typesAuth: ['google', 'mail'],
-      token: 'TYOKEN'
-    }
+    // return {
+    //   success: true,
+    //   securityMail: 'este******@gm**.com',
+    //   typesAuth: ['google', 'mail'],
+    //   token: 'TYOKEN'
+    // }
     // return false
   }
 }

@@ -1,9 +1,9 @@
 import { FormControl, FormField, FormItem, FormLabel } from '@src/core/ui/form'
 import { Input } from '@src/core/ui/input'
-import { useForm } from 'react-hook-form'
+import { Control } from 'react-hook-form'
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  control: ReturnType<typeof useForm>['control']
+  control: Control<any>
   label?: string
 }
 

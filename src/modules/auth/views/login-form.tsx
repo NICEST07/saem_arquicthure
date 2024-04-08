@@ -1,7 +1,7 @@
 'use client'
 import { useForm } from 'react-hook-form'
 import { Form } from '@src/core/ui/form'
-import { InputController } from '@src/core/components/fieldfs-controllers/input'
+import { InputController } from '@src/core/components/fields-controllers/input'
 import { WrapperIcon } from '../components/ui/wrapper-icon'
 import { useTranslations } from 'next-intl'
 import { Eye, EyeOff, LockKeyhole, User } from 'lucide-react'
@@ -16,9 +16,11 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { loginUser } from '../services/login'
 import { hasMessageError } from '../utils/get-message-error'
 import { toast } from 'sonner'
+import { useAuthContext } from '../context/auth-context'
 
 export function LoginForm ({ onNextStep, onPrevStep }: StepProps) {
-  const t = useTranslations()
+  const { setState } = useAuthContext()
+  const t = useTranslations('auth.logIn')
   const form = useForm({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -37,9 +39,10 @@ export function LoginForm ({ onNextStep, onPrevStep }: StepProps) {
       const res = await loginUser(formData, tokenCaptcha)
       console.log(res)
       if (!res.success) throw new Error('error')
+      setState((prev) => ({ ...prev, token: res.token, methodAuths: res.methodAuths, userMail: res.userMail }))
       onNextStep()
     } catch (error: any) {
-      const message = await hasMessageError(error?.response?.data?.errorsForm, error?.code)
+      const message = await hasMessageError(error?.response?.data?.errorsForm, error?.code) as string
       toast.error(message)
     }
   }
