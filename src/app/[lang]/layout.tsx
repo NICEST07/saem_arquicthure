@@ -23,7 +23,7 @@ export default function LangLayout ({ children, params, ...props }: { children: 
   const messages = useMessages()
 
   return (
-    <html lang={params.lang} className='dark'>
+    <html lang={params.lang} className=''>
       <body className={`${roboto.className} bg-palette-background h-screen`}>
         <NextIntlClientProvider locale={params.lang} messages={messages}>
           <NextAuthProvider>

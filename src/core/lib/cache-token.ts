@@ -1,4 +1,4 @@
-import { isBefore } from '@formkit/tempo'
+// import { isBefore } from '@formkit/tempo'
 
 export class CacheToken {
   private token: null | string
@@ -18,11 +18,11 @@ export class CacheToken {
   }
 
   getToken () {
-    const current = new Date()
-    if (isBefore(current, this?.expire ?? '')) return this.token
+    // const current = new Date()
+    // if (isBefore(current, this?.expire ?? '')) return this.token
 
-    this.reset()
-    return null
+    // this.reset()
+    return this.token
   }
 
   private reset () {
