@@ -4,6 +4,7 @@ import { useState } from 'react'
 export interface StepProps {
   onNextStep: () => void
   onPrevStep: () => void
+  onGoStep: (newStep: number) => void
 }
 
 export function StepFlow ({ steps }: { steps: Array<React.ComponentType<StepProps>> }) {
@@ -19,10 +20,15 @@ export function StepFlow ({ steps }: { steps: Array<React.ComponentType<StepProp
     setStep(step - 1)
   }
 
+  const onGoStep = (newStep: number) => {
+    if (newStep >= steps.length - 1 || step <= 0) return
+    setStep(newStep)
+  }
+
   const renderStep = () => {
     const StepComponent = steps[step]
     return (
-      <StepComponent onNextStep={onNextStep} onPrevStep={onPrevStep} />
+      <StepComponent onNextStep={onNextStep} onPrevStep={onPrevStep} onGoStep={onGoStep} />
     )
   }
 
